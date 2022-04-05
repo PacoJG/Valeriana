@@ -10,6 +10,15 @@
     <string name="item1">Consulta</string>
     <string name="item2">Extraccion</string>
     <string name="item3">Otro</string>
+    <string name="header_agendarcita">Agendar cita</string>
+    <string name="imgbtn_back">back_btn</string>
+    <string name="tvHorario_AC">Horario</string>
+    <string name="tvNombrePaciente_AC">Nombre del paciente</string>
+    <string name="tvAsunto_AC">Asunto de la cita</string>
+    <string name="tvDetalles_AC">Detalles particulares</string>
+    <string name="btnAdd_AC">Confirmar</string>
+    <string name="addUser_CalendarFragment">Add_User</string>
+    <string name="tvHeaderCitas_FragmentHome">Tus próximas citas</string>
     <string-array name="tags_list">
         <item>@string/item1</item>
         <item>@string/item2</item>

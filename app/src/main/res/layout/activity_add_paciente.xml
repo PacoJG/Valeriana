@@ -25,7 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="Agendar cita"
+                android:text="@string/header_agendarcita"
                 android:textColor="@color/fonts_base"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -37,10 +37,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_stroke"
-                android:contentDescription="add"
+                android:contentDescription="@string/imgbtn_back"
                 android:minWidth="48dp"
                 android:minHeight="48dp"
-                android:onClick="clickBack"
                 android:paddingLeft="9dp"
                 android:paddingTop="14dp"
                 android:paddingRight="9dp"
@@ -61,7 +60,7 @@
             android:layout_below="@id/addpacienteheader"
             android:layout_alignParentStart="true"
             android:layout_marginTop="43dp"
-            android:text="Horario"
+            android:text="@string/tvHorario_AC"
             android:textColor="@color/fonts_base" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -98,7 +97,7 @@
             android:layout_below="@+id/tilHorario"
             android:layout_alignParentStart="true"
             android:layout_marginTop="37dp"
-            android:text="Nombre del paciente"
+            android:text="@string/tvNombrePaciente_AC"
             android:textColor="@color/fonts_base" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -135,7 +134,7 @@
             android:layout_below="@+id/tilNombre"
             android:layout_alignParentStart="true"
             android:layout_marginTop="37dp"
-            android:text="Asunto de la cita"
+            android:text="@string/tvAsunto_AC"
             android:textColor="@color/fonts_base" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -174,7 +173,7 @@
             android:layout_below="@+id/tilAsuntoCita"
             android:layout_alignParentStart="true"
             android:layout_marginTop="17dp"
-            android:text="Detalles particulares"
+            android:text="@string/tvDetalles_AC"
             android:textColor="@color/fonts_base" />
 
         <com.google.android.material.textfield.TextInputLayout
@@ -245,7 +244,7 @@
             android:paddingTop="12dp"
             android:paddingEnd="36dp"
             android:paddingBottom="12dp"
-            android:text="Confirmar"
+            android:text="@string/btnAdd_AC"
             android:textAllCaps="false"
             android:textColor="@color/white"
             app:cornerRadius="8dp" />

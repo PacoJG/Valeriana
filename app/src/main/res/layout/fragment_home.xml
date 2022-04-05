@@ -112,7 +112,7 @@
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Tus próximas citas"
+        android:text="@string/tvHeaderCitas_FragmentHome"
         style="@style/Content_Caption"
         android:textColor="@color/fonts_base"
         android:layout_marginTop="24dp"
