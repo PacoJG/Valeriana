@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <com.google.android.material.card.MaterialCardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
@@ -25,8 +26,9 @@
             android:layout_height="72dp"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginTop="22.5dp"
-            android:layout_marginBottom="22.5dp" />
+            android:layout_marginTop="12dp"
+            android:layout_marginBottom="22.5dp"
+            tools:src="@drawable/image_cita" />
 
         <LinearLayout
             android:id="@+id/linearlayout"
@@ -37,6 +39,7 @@
             android:layout_toEndOf="@+id/item_image_carddescriptive">
 
             <TextView
+                android:id="@+id/Tag_CardHome"
                 style="@style/Tag_Text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -53,6 +56,7 @@
                 android:layout_height="wrap_content" />
 
             <TextView
+                android:id="@+id/date_CardHome"
                 style="@style/card_light"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -61,7 +65,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/name_user_card"
+            android:id="@+id/name_user_CardHome"
             style="@style/Components_Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -72,10 +76,11 @@
             android:textColor="@color/fonts_base" />
 
         <TextView
+            android:id="@+id/asuntoCita_CardHome"
             style="@style/Content_Body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/name_user_card"
+            android:layout_below="@+id/name_user_CardHome"
             android:layout_marginStart="16dp"
             android:layout_toEndOf="@+id/item_image_carddescriptive"
             android:text="Se necesita una extracción del 2do molar debido a una fractura." />
