@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "483601997963",
+    "project_id": "valeriana-22bf8",
+    "storage_bucket": "valeriana-22bf8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:483601997963:android:d0e6af5664e385f18db48e",
+        "android_client_info": {
+          "package_name": "com.example.valeriana"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "483601997963-j3jtl74m4mvvjvu0ssh8n6pp7g8d5fb9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.valeriana",
+            "certificate_hash": "b27c0e6ecf620cf43a77568868c33f32af53fb45"
+          }
+        },
+        {
+          "client_id": "483601997963-ho40sh1r8kfha0o48nj5v45nmvcjt8ae.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC0bKvSI9hHrroj9uKD1mBxv9ULJWS-1cA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "483601997963-ho40sh1r8kfha0o48nj5v45nmvcjt8ae.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

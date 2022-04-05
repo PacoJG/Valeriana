@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fillViewport="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/base_light"
+        android:paddingStart="36dp"
+        android:paddingEnd="36dp"
+        tools:context=".Add_Paciente">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/addpacienteheader"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="48dp">
+
+            <TextView
+                style="@style/Content_Headline1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:text="Agendar cita"
+                android:textColor="@color/fonts_base"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageButton
+                android:id="@+id/btnBackAddCita"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_stroke"
+                android:contentDescription="add"
+                android:minWidth="48dp"
+                android:minHeight="48dp"
+                android:onClick="clickBack"
+                android:paddingLeft="9dp"
+                android:paddingTop="14dp"
+                android:paddingRight="9dp"
+                android:paddingBottom="14dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_arrow"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:focusable="true" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/tvHorario"
+            style="@style/Content_Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/addpacienteheader"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="43dp"
+            android:text="Horario"
+            android:textColor="@color/fonts_base" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilHorario"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvHorario"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="14dp"
+            android:textColorHint="#83C5BE"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="#83C5BE"
+            app:hintTextColor="#83C5BE"
+            app:startIconDrawable="@drawable/ic_calendar"
+            app:startIconTint="@null">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tieHorario"
+                style="@style/Components_Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="12sp"
+                android:paddingTop="14sp"
+                android:paddingBottom="14sp"
+                android:textColor="@color/fonts_base" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tvNombrePaciente"
+            style="@style/Content_Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tilHorario"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="37dp"
+            android:text="Nombre del paciente"
+            android:textColor="@color/fonts_base" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilNombre"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvNombrePaciente"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="14dp"
+            android:textColorHint="#83C5BE"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="#83C5BE"
+            app:hintTextColor="#83C5BE"
+            app:startIconDrawable="@drawable/ic_user"
+            app:startIconTint="@null">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tieNombre"
+                style="@style/Components_Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:paddingStart="12sp"
+                android:paddingTop="14sp"
+                android:paddingBottom="14sp"
+                android:textColor="@color/fonts_base" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tvAsuntoCita"
+            style="@style/Content_Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tilNombre"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="37dp"
+            android:text="Asunto de la cita"
+            android:textColor="@color/fonts_base" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilAsuntoCita"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvAsuntoCita"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="14dp"
+            android:textColorHint="#83C5BE"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="#83C5BE"
+            app:counterEnabled="true"
+            app:counterMaxLength="150"
+            app:hintTextColor="#83C5BE"
+            app:startIconTint="@null">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tieAsuntoCita"
+                style="@style/Components_Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:height="116dp"
+                android:paddingStart="12dp"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp"
+                android:textColor="@color/fonts_base" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <TextView
+            android:id="@+id/tvDetalles"
+            style="@style/Content_Caption"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tilAsuntoCita"
+            android:layout_alignParentStart="true"
+            android:layout_marginTop="17dp"
+            android:text="Detalles particulares"
+            android:textColor="@color/fonts_base" />
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilDetalles"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tvDetalles"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="14dp"
+            android:textColorHint="#83C5BE"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="#83C5BE"
+            app:counterEnabled="true"
+            app:counterMaxLength="150"
+            app:hintTextColor="#83C5BE"
+            app:startIconTint="@null">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/tieDetalles"
+                style="@style/Components_Button"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:height="116dp"
+                android:paddingStart="12dp"
+                android:paddingTop="14dp"
+                android:paddingBottom="14dp"
+                android:textColor="@color/fonts_base" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/tilTag"
+            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tilDetalles"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="20dp"
+            android:hint="@string/hint_btn_etiqueta"
+            android:textColorHint="#83C5BE"
+            app:boxBackgroundColor="@color/white"
+            app:boxStrokeColor="#83C5BE"
+            app:hintTextAppearance="@style/Content_Caption"
+            app:hintTextColor="#83C5BE">
+
+            <AutoCompleteTextView
+                android:id="@+id/actvTag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="none"
+                android:textColor="@color/fonts_base"
+                android:textColorHighlight="#83C5BE"
+                android:textColorHint="#83C5BE"
+                style="@style/Components_Button" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <Button
+            android:id="@+id/btnAddBD"
+            style="@style/Components_Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/tilTag"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="36dp"
+            android:layout_marginBottom="40dp"
+            android:backgroundTint="@color/blue"
+            android:paddingStart="36dp"
+            android:paddingTop="12dp"
+            android:paddingEnd="36dp"
+            android:paddingBottom="12dp"
+            android:text="Confirmar"
+            android:textAllCaps="false"
+            android:textColor="@color/white"
+            app:cornerRadius="8dp" />
+
+    </RelativeLayout>
+
+</ScrollView>

@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Valeriana</string>
+    <string name="name_app">Valeriana</string>
+    <string name="saludo">¡Hola Carlos!</string>
+    <string name="EnLinea">En línea</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hint_btn_etiqueta">Etiqueta</string>
+    <!--STRING PARA TAGS -->
+    <string name="item1">Consulta</string>
+    <string name="item2">Extraccion</string>
+    <string name="item3">Otro</string>
+    <string-array name="tags_list">
+        <item>@string/item1</item>
+        <item>@string/item2</item>
+        <item>@string/item3</item>
+    </string-array>
+</resources>
