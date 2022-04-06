@@ -5,6 +5,7 @@ import android.media.Image
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.view.View
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
@@ -18,12 +19,13 @@ class Adapter_Home(private val userList : ArrayList<user_cita>): RecyclerView.Ad
         return MyViewHolder(itemView)
     }
 
-    override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
+    override fun onBindViewHolder(holder: MyViewHolder, position: Int){
         val currentitem = userList[position]
         holder.date.text = currentitem.date
         holder.name.text = currentitem.name
         holder.asuntoCita.text = currentitem.asuntoCita
         holder.tag.text = currentitem.tag
+        holder.image.setImageResource(R.drawable.image_cita)
 
     }
 
@@ -36,5 +38,6 @@ class Adapter_Home(private val userList : ArrayList<user_cita>): RecyclerView.Ad
         val name : TextView = itemView.findViewById(R.id.name_user_CardHome)
         val asuntoCita : TextView = itemView.findViewById(R.id.asuntoCita_CardHome)
         val tag : TextView = itemView.findViewById(R.id.Tag_CardHome)
+        val image : ImageView = itemView.findViewById(R.id.item_image_carddescriptive)
     }
 }
