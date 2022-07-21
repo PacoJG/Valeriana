@@ -1,28 +1,35 @@
 package com.example.valeriana.fragments
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.example.valeriana.Adapters.Adapter_Home
 import com.example.valeriana.R
-import com.example.valeriana.databinding.FragmentCalendarBinding
 import com.example.valeriana.databinding.FragmentHomeBinding
 import com.example.valeriana.user_cita
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import java.text.SimpleDateFormat
+import java.util.*
+
 
 class HomeFragment : Fragment() {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var dbref : DatabaseReference
+    private lateinit var firebaseAuth: FirebaseAuth
     var fragmentView : View? = null
     private lateinit var userRecyclerView: RecyclerView
     private lateinit var userArrayList : ArrayList<user_cita>
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        firebaseAuth = FirebaseAuth.getInstance()
     }
 
     override fun onCreateView(
@@ -36,7 +43,13 @@ class HomeFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-       userRecyclerView = view.findViewById(R.id.recyclerviewHome)
+        getUser()
+        getImageProfile()
+        val date = getCurrentDateTime()
+        val dateInString = date.toString("MMM d, yyyy")
+        Log.d("HORA", dateInString)
+
+        userRecyclerView = view.findViewById(R.id.recyclerviewHome)
         userRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         userRecyclerView.setHasFixedSize(true)
         userArrayList = arrayListOf<user_cita>()
@@ -45,10 +58,31 @@ class HomeFragment : Fragment() {
 
     }
 
+    private fun getUser() {
+        val firebaseUser = firebaseAuth.currentUser!!
+        val refUser = FirebaseDatabase.getInstance().getReference("users")
+        refUser.child(firebaseUser.uid)
+            .addListenerForSingleValueEvent(object: ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    //progressDialog.dismiss()
+                    val user = snapshot.child("name").value
+                    val hello = "¡Hola"
+                    binding.tvSaludo.text = hello.plus(" ").plus(user.toString()).plus("!")
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+            })
+    }
+
 
     private fun getUserData(){
-        dbref = FirebaseDatabase.getInstance().getReference("Users")
-        dbref.addValueEventListener(object : ValueEventListener{
+        val refData = FirebaseDatabase.getInstance().getReference("pacientes")
+        val date = getCurrentDateTime()
+        val dateInString = date.toString("MMM d, yyyy")
+        refData.child(firebaseAuth.uid!!).orderByChild("fecha").equalTo(dateInString)
+            .addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()){
                     for(userSnapshot in snapshot.children){
@@ -65,6 +99,40 @@ class HomeFragment : Fragment() {
             }
 
         })
+    }
+
+    private fun getImageProfile(){
+        val uid = firebaseAuth.uid
+        val ref = FirebaseDatabase.getInstance().getReference("users")
+        ref.child(uid!!)
+            .addValueEventListener(object: ValueEventListener{
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val profileImage = "${snapshot.child("profileImage").value}"
+                    try {
+                        Glide.with(this@HomeFragment)
+                            .load(profileImage)
+                            .placeholder(R.drawable.ic_profiledefault)
+                            .into(binding.ivPhotoProfile)
+                    }
+                    catch (e: Exception){
+
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+                    TODO("Not yet implemented")
+                }
+
+            })
+    }
+
+    fun Date.toString(format: String, locale: Locale = Locale.getDefault()): String{
+        val formatter = SimpleDateFormat(format, locale)
+        return formatter.format(this)
+    }
+
+    fun getCurrentDateTime(): Date{
+        return Calendar.getInstance().time
     }
 }
 

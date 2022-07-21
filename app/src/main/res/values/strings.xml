@@ -10,18 +10,52 @@
     <string name="item1">Consulta</string>
     <string name="item2">Extraccion</string>
     <string name="item3">Otro</string>
+    <string name="item4">Dentista</string>
+    <string name="item5">Nutriologo</string>
+    <string name="item6">Doctor</string>
+    <string name="item7">Psicolog</string>
     <string name="header_agendarcita">Agendar cita</string>
     <string name="imgbtn_back">back_btn</string>
-    <string name="tvHorario_AC">Horario</string>
+    <string name="tvHorario_AC">Fecha y hora*</string>
     <string name="tvNombrePaciente_AC">Nombre del paciente</string>
     <string name="tvAsunto_AC">Asunto de la cita</string>
-    <string name="tvDetalles_AC">Detalles particulares</string>
+    <string name="tvDetalles_AC">Descripción</string>
     <string name="btnAdd_AC">Confirmar</string>
     <string name="addUser_CalendarFragment">Add_User</string>
     <string name="tvHeaderCitas_FragmentHome">Tus próximas citas</string>
+    <string name="bienvenida">¡Bienvenido a Valeriana!</string>
+    <string name="noAccount">¿No tienes una cuenta? <b>SignUp</b></string>
+    <string name="yesAccount">¿Ya tienes cuenta? <b>Login</b></string>
+    <string name="unete">¡Únete a Valeriana!</string>
+    <string name="wait">Espere un momento</string>
+    <string name="EnterName">Ingrese su nombre</string>
+    <string name="EnterSecondName">Ingrese su apelldio</string>
+    <string name="EnterEmail">Ingrese un correo valido</string>
+    <string name="EnterPassword">Ingrese una contraseña valida</string>
+    <string name="header_profile">Perfil</string>
+    <string name="pressImage">Presiona para cambiar</string>
+    <string name="placeholderCategoria">Categoria</string>
+    <string name="sobreMi">Sobre mi</string>
+    <string name="direccion">Dirección</string>
+    <string name="guardar">Guardar</string>
+    <string name="sinAsunto">Sin asunto</string>
+    <string name="sinDescripcion">Sin descripción</string>
+    <string name="sinPrescripcion">Sin prescripción</string>
+    <string name="tvPrescripcion">Prescripción</string>
+    <string name="tvIndicaciones">Indicación</string>
+    <string name="sinIndicaciones">Sin indicaciones</string>
+    <string name="tvPhone">Número celular</string>
+    <string name="sinPhone">Sin número celular</string>
+    <string name="Calendar">Calendario</string>
     <string-array name="tags_list">
         <item>@string/item1</item>
         <item>@string/item2</item>
         <item>@string/item3</item>
+    </string-array>
+    <string-array name="tags_category">
+        <item>@string/item4</item>
+        <item>@string/item5</item>
+        <item>@string/item6</item>
+        <item>@string/item7</item>
     </string-array>
 </resources>

@@ -11,6 +11,8 @@
     <color name="green_dark">#006D77</color>
     <color name="base_light">#EDF6F9</color>
     <color name="border_gray">#C0CDDA</color>
+    <color name="blue_light">#D8EEFD</color>
     <color name="mtrl_textinput_default_box_stroke_color" tools:override="true">#fff</color>
     <color name="blue">#3F84E5</color>
+    <color name="gray">#C0CDDA</color>
 </resources>
