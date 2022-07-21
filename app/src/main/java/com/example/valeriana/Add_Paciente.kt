@@ -23,6 +23,7 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import com.google.firebase.storage.FirebaseStorage
+import java.util.*
 
 class Add_Paciente : AppCompatActivity(), AdapterView.OnItemClickListener {
 
@@ -70,15 +71,6 @@ class Add_Paciente : AppCompatActivity(), AdapterView.OnItemClickListener {
         }
 
         ButtonBack.setOnClickListener {
-            /*val myFragment = CalendarFragment()
-            val fragment : Fragment? =
-            supportFragmentManager.findFragmentByTag(CalendarFragment::class.java.simpleName)
-
-            if (fragment !is CalendarFragment){
-                supportFragmentManager.beginTransaction()
-                    .add(R.id.frame, myFragment, CalendarFragment::class.java.simpleName)
-                    .commit()
-            }*/
             onBackPressed()
         }
 
@@ -179,9 +171,10 @@ class Add_Paciente : AppCompatActivity(), AdapterView.OnItemClickListener {
     private fun addProfile(uploadImageUri: String) {
         progressDialog.setMessage("Creando cita")
         val firebaseUser = firebaseAuth.currentUser!!
+        val id = UUID.randomUUID().toString()
         //setup info
-        //val User = user_cita(asunto, fecha, detalle, uploadImageUri, indicacion, name, prescripcion, tag, time )
-        val hashMmap: HashMap<String, Any> = HashMap()
+        val User = user_cita(uploadImageUri, name, tag, fecha, time, asunto, detalle, prescripcion, indicacion, numero, id )
+        /*val hashMmap: HashMap<String, Any> = HashMap()
         hashMmap["name"] = "$name"
         hashMmap["tag"] = "$tag"
         hashMmap["asunto"] = "$asunto"
@@ -193,9 +186,9 @@ class Add_Paciente : AppCompatActivity(), AdapterView.OnItemClickListener {
         hashMmap["time"] = "$time"
         if (imageUri != null){
             hashMmap["profileImage"] = uploadImageUri
-        }
+        }*/
         val reference = FirebaseDatabase.getInstance().getReference("pacientes")
-        reference.child(firebaseUser.uid).push().setValue(hashMmap)
+        reference.child(firebaseUser.uid).child(id).setValue(User)
             .addOnSuccessListener {
                 binding.tieHorario.text?.clear()
                 binding.tieTime.text?.clear()
@@ -205,7 +198,6 @@ class Add_Paciente : AppCompatActivity(), AdapterView.OnItemClickListener {
                 binding.tieNombre.text?.clear()
                 binding.tieAsuntoCita.text?.clear()
                 binding.tieDetalles.text?.clear()
-                binding.actvTag.text?.clear()
                 //profile update
                 progressDialog.dismiss()
                 Toast.makeText(this,"Cita agregada",Toast.LENGTH_SHORT).show()
@@ -251,29 +243,29 @@ class Add_Paciente : AppCompatActivity(), AdapterView.OnItemClickListener {
     }
 
     fun onDateSelected(day: Int, month:Int, year: Int){
-        if (month == 1){
+        if (month == 0){
             binding.tieHorario.setText("jan. $day, $year")
-        }else if(month == 2){
+        }else if(month == 1){
             binding.tieHorario.setText("feb. $day, $year")
-        }else if(month == 3){
+        }else if(month == 2){
             binding.tieHorario.setText("mar. $day, $year")
-        }else if(month == 4){
+        }else if(month == 3){
             binding.tieHorario.setText("apr. $day, $year")
-        }else if(month == 5){
+        }else if(month == 4){
             binding.tieHorario.setText("may. $day, $year")
-        }else if(month == 6){
+        }else if(month == 5){
             binding.tieHorario.setText("jun. $day, $year")
-        }else if(month == 7){
+        }else if(month == 6){
             binding.tieHorario.setText("jul. $day, $year")
-        }else if(month == 8){
+        }else if(month == 7){
             binding.tieHorario.setText("aug. $day, $year")
-        }else if(month == 9){
+        }else if(month == 8){
             binding.tieHorario.setText("sep. $day, $year")
-        }else if(month == 10){
+        }else if(month == 9){
             binding.tieHorario.setText("oct. $day, $year")
-        }else if(month == 11){
+        }else if(month == 10){
             binding.tieHorario.setText("nov. $day, $year")
-        }else if(month == 12){
+        }else if(month == 11){
             binding.tieHorario.setText("dec. $day, $year")
         }
 

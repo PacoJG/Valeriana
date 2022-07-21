@@ -15,7 +15,7 @@ import com.example.valeriana.fragments.CalendarFragment
 import com.example.valeriana.fragments.HomeFragment
 import com.example.valeriana.user_cita
 
-class Adapter_Home(private val userList: ArrayList<user_cita>, private val onUserClickListenerHome: HomeFragment): RecyclerView.Adapter<Adapter_Home.MyViewHolder>() {
+class Adapter_Calendar(private val userList: ArrayList<user_cita>, private val onUserClickListenerHome: CalendarFragment): RecyclerView.Adapter<Adapter_Calendar.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val itemView = LayoutInflater.from(parent.context).inflate(R.layout.card_descriptive_layout, parent, false)

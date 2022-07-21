@@ -47,6 +47,10 @@
     <string name="tvPhone">Número celular</string>
     <string name="sinPhone">Sin número celular</string>
     <string name="Calendar">Calendario</string>
+    <string name="header_detalle">Detalle</string>
+    <string name="btnGuardar">Editar</string>
+    <string name="back"><![CDATA[<-]]></string>
+    <string name="forward"><![CDATA[->]]></string>
     <string-array name="tags_list">
         <item>@string/item1</item>
         <item>@string/item2</item>

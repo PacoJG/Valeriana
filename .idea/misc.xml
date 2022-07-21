@@ -26,7 +26,8 @@
         <entry key="app/src/main/res/drawable/rounded_tag.xml" value="0.3125" />
         <entry key="app/src/main/res/drawable/selector.xml" value="0.286" />
         <entry key="app/src/main/res/drawable/users_icons.xml" value="0.3205" />
-        <entry key="app/src/main/res/layout/activity_add_paciente.xml" value="0.3986537023186238" />
+        <entry key="app/src/main/res/layout/activity_add_paciente.xml" value="0.3488219895287958" />
+        <entry key="app/src/main/res/layout/activity_detailed.xml" value="0.3222490931076179" />
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.32173729790581596" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.2148670426491439" />

@@ -25,7 +25,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
-                android:text="@string/header_agendarcita"
+                android:text="@string/header_detalle"
                 android:textColor="@color/fonts_base"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -33,7 +33,7 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
-                android:id="@+id/btnBackAddCita"
+                android:id="@+id/btnBackDeatl"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_stroke"
@@ -67,72 +67,83 @@
         </com.google.android.material.imageview.ShapeableImageView>
 
         <TextView
-            android:id="@+id/textView4"
+            android:id="@+id/tvName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/profileImage"
             android:layout_marginTop="4dp"
             android:layout_centerHorizontal="true"
-            android:text="@string/pressImage"
-            style="@style/Content_Caption"
+            android:text="Nombre"
+            style="@style/Components_Button"
             android:textColor="@color/fonts_base"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent" />
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilNombre"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/textView4"
-            android:layout_centerHorizontal="true"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/buttonsCallyMessage"
+            android:layout_width="wrap_content"
+            android:layout_below="@+id/tvName"
             android:layout_marginTop="8dp"
-            android:textColorHint="#83C5BE"
-            app:boxBackgroundColor="@color/white"
-            app:boxStrokeColor="#83C5BE"
-            app:hintTextColor="#83C5BE"
-            app:startIconTint="@null">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:id="@+id/tieNombre"
-                style="@style/Components_Button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:height="50dp"
-                android:paddingStart="12dp"
-                android:textAlignment="center"
-                android:paddingTop="14dp"
-                android:paddingBottom="14dp"
-                android:textColor="@color/fonts_base"
-                tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/tilCategoria"
-            style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.ExposedDropdownMenu"
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
             android:layout_centerHorizontal="true"
-            android:layout_below="@id/tilNombre"
-            android:layout_marginTop="8dp">
+            android:layout_height="match_parent">
 
-            <AutoCompleteTextView
-                android:id="@+id/actvTag"
-                android:layout_width="match_parent"
-                android:layout_height="50dp"
-                android:background="@color/blue_light"
-                android:text="Categoria"
-                android:textColor="@color/blue"
-                tools:ignore="TextContrastCheck" />
+            <ImageButton
+                android:id="@+id/btnMessage"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:background="@drawable/button_stroke"
+                android:contentDescription="@string/imgbtn_back"
+                android:focusable="true"
+                android:paddingLeft="9dp"
+                android:paddingTop="14dp"
+                android:paddingRight="9dp"
+                android:paddingBottom="14dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_message"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        </com.google.android.material.textfield.TextInputLayout>
+            <ImageButton
+                android:id="@+id/btnCall"
+                android:layout_width="42dp"
+                android:layout_height="42dp"
+                android:background="@drawable/button_stroke"
+                android:contentDescription="@string/imgbtn_back"
+                android:focusable="true"
+                android:layout_marginStart="12dp"
+                android:paddingLeft="9dp"
+                android:paddingTop="14dp"
+                android:paddingRight="9dp"
+                android:paddingBottom="14dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/ic_ic_phone"
+                app:layout_constraintStart_toEndOf="@+id/btnMessage"
+                app:layout_constraintTop_toTopOf="parent" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/TagDeatiled"
+            style="@style/Tag_Text"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/buttonsCallyMessage"
+            android:layout_marginTop="24dp"
+            android:layout_centerHorizontal="true"
+            android:background="@drawable/rounded_tag"
+            android:paddingLeft="12dp"
+            android:paddingTop="2dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="2dp"
+            android:text="Extraccion"
+            android:textColor="@color/fonts_base" />
 
         <TextView
             android:id="@+id/tvHorario"
             style="@style/Content_Caption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/tilCategoria"
+            android:layout_below="@id/TagDeatiled"
             android:layout_alignParentStart="true"
             android:layout_marginTop="16dp"
             android:text="@string/tvHorario_AC"
@@ -141,9 +152,9 @@
         <androidx.constraintlayout.widget.ConstraintLayout
             android:id="@+id/fechayhora"
             android:layout_width="wrap_content"
-            android:layout_height="match_parent"
             android:layout_below="@+id/tvHorario"
-            android:layout_marginTop="8dp">
+            android:layout_marginTop="8dp"
+            android:layout_height="match_parent">
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilHorario"
@@ -152,8 +163,8 @@
                 android:layout_height="46dp"
                 app:boxBackgroundColor="@color/white"
                 app:boxStrokeColor="#83C5BE"
-                app:hintEnabled="false"
                 app:hintTextColor="#83C5BE"
+                app:hintEnabled="false"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 app:startIconTint="@null">
@@ -165,26 +176,26 @@
                     android:layout_height="wrap_content"
                     android:clickable="false"
                     android:focusable="false"
+                    android:textColorHint="#83C5BE"
                     android:hint="Fecha"
                     android:paddingStart="12sp"
                     android:paddingTop="14sp"
                     android:paddingBottom="14sp"
-                    android:textColor="@color/fonts_base"
-                    android:textColorHint="#83C5BE" />
+                    android:textColor="@color/fonts_base" />
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilTime"
-                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="130dp"
                 android:layout_height="46dp"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                app:layout_constraintStart_toEndOf="@+id/tilHorario"
+                app:layout_constraintTop_toTopOf="parent"
                 android:layout_marginStart="24dp"
                 app:boxBackgroundColor="@color/white"
                 app:boxStrokeColor="#83C5BE"
-                app:hintEnabled="false"
                 app:hintTextColor="#83C5BE"
-                app:layout_constraintStart_toEndOf="@+id/tilHorario"
-                app:layout_constraintTop_toTopOf="parent"
+                app:hintEnabled="false"
                 app:startIconTint="@null">
 
                 <com.google.android.material.textfield.TextInputEditText
@@ -194,12 +205,12 @@
                     android:layout_height="wrap_content"
                     android:clickable="false"
                     android:focusable="false"
+                    android:textColorHint="#83C5BE"
                     android:hint="Hora"
                     android:paddingStart="12sp"
                     android:paddingTop="14sp"
                     android:paddingBottom="14sp"
-                    android:textColor="@color/fonts_base"
-                    android:textColorHint="#83C5BE" />
+                    android:textColor="@color/fonts_base"/>
 
             </com.google.android.material.textfield.TextInputLayout>
 
@@ -411,7 +422,7 @@
         </com.google.android.material.textfield.TextInputLayout>
 
         <Button
-            android:id="@+id/btnAddBD"
+            android:id="@+id/btnEdit"
             style="@style/Components_Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -424,7 +435,7 @@
             android:paddingTop="12dp"
             android:paddingEnd="36dp"
             android:paddingBottom="12dp"
-            android:text="@string/btnAdd_AC"
+            android:text="@string/btnGuardar"
             android:textAllCaps="false"
             android:textColor="@color/white"
             app:cornerRadius="8dp" />

@@ -1,5 +1,6 @@
 package com.example.valeriana.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.LayoutInflater
@@ -10,6 +11,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.valeriana.Adapters.Adapter_Home
+import com.example.valeriana.DetailedActivity
+import com.example.valeriana.OnUserClickListenerHome
 import com.example.valeriana.R
 import com.example.valeriana.databinding.FragmentHomeBinding
 import com.example.valeriana.user_cita
@@ -19,7 +22,7 @@ import java.text.SimpleDateFormat
 import java.util.*
 
 
-class HomeFragment : Fragment() {
+class HomeFragment : Fragment(), OnUserClickListenerHome {
     private lateinit var binding: FragmentHomeBinding
     private lateinit var dbref : DatabaseReference
     private lateinit var firebaseAuth: FirebaseAuth
@@ -48,7 +51,6 @@ class HomeFragment : Fragment() {
         val date = getCurrentDateTime()
         val dateInString = date.toString("MMM d, yyyy")
         Log.d("HORA", dateInString)
-
         userRecyclerView = view.findViewById(R.id.recyclerviewHome)
         userRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         userRecyclerView.setHasFixedSize(true)
@@ -78,10 +80,11 @@ class HomeFragment : Fragment() {
 
 
     private fun getUserData(){
+        val firebaseUser = firebaseAuth.currentUser!!
         val refData = FirebaseDatabase.getInstance().getReference("pacientes")
         val date = getCurrentDateTime()
         val dateInString = date.toString("MMM d, yyyy")
-        refData.child(firebaseAuth.uid!!).orderByChild("fecha").equalTo(dateInString)
+        refData.child(firebaseUser.uid!!).orderByChild("date").equalTo(dateInString)
             .addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()){
@@ -90,7 +93,7 @@ class HomeFragment : Fragment() {
                         userArrayList.add(user!!)
                     }
 
-                    userRecyclerView.adapter = Adapter_Home(userArrayList)
+                    userRecyclerView.adapter = Adapter_Home(userArrayList, this@HomeFragment)
                 }
             }
 
@@ -100,6 +103,7 @@ class HomeFragment : Fragment() {
 
         })
     }
+
 
     private fun getImageProfile(){
         val uid = firebaseAuth.uid
@@ -133,6 +137,22 @@ class HomeFragment : Fragment() {
 
     fun getCurrentDateTime(): Date{
         return Calendar.getInstance().time
+    }
+
+    override fun onUserItemClicked(position: Int) {
+        val intent = Intent(context,DetailedActivity::class.java)
+        intent.putExtra("name",userArrayList[position].name)
+        intent.putExtra("tag",userArrayList[position].tag)
+        intent.putExtra("date",userArrayList[position].date)
+        intent.putExtra("time",userArrayList[position].time)
+        intent.putExtra("asunto",userArrayList[position].asuntoCita)
+        intent.putExtra("descripcion",userArrayList[position].detalles)
+        intent.putExtra("indicaciones",userArrayList[position].indicaciones)
+        intent.putExtra("prescripcion",userArrayList[position].prescripcion)
+        intent.putExtra("phone",userArrayList[position].phone)
+        intent.putExtra("key",userArrayList[position].key)
+        intent.putExtra("imageUrl",userArrayList[position].imageUrl)
+        startActivity(intent)
     }
 }
 
