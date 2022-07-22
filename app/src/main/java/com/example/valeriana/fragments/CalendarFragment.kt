@@ -80,6 +80,9 @@ class CalendarFragment : Fragment() {
             val intent = Intent(this@CalendarFragment.requireContext(), Add_Paciente::class.java)
             startActivity(intent)
         }
+        val date = getCurrentDateTime()
+        val dateInString = date.toString("MMMM d, yyyy")
+        binding.tvDate.text = dateInString
         return binding.root
     }
 
@@ -90,7 +93,8 @@ class CalendarFragment : Fragment() {
         userRecyclerView.setHasFixedSize(true)
         userArrayList = arrayListOf<user_cita>()
         dayDatePicker = view.findViewById(R.id.dayDatePicker)
-        dayDatePicker.setStartDate(21,7,2022)
+        //dayDatePicker.setStartDate(21,7,2022)
+        dayDatePicker.isSelected
         dayDatePicker.getSelectedDate(object : OnDateSelectedListener {
             override fun onDateSelected(@Nullable date: Date?) {
                 SelectedDate = date.toString()
@@ -130,6 +134,15 @@ class CalendarFragment : Fragment() {
                 }
 
             })
+    }
+
+    fun Date.toString(format: String, locale: Locale = Locale.getDefault()): String{
+        val formatter = SimpleDateFormat(format, locale)
+        return formatter.format(this)
+    }
+
+    fun getCurrentDateTime(): Date{
+        return Calendar.getInstance().time
     }
 
     fun onUserItemClicked(position: Int) {

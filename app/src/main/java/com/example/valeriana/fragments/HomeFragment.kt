@@ -2,6 +2,7 @@ package com.example.valeriana.fragments
 
 import android.app.Dialog
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
@@ -11,6 +12,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.Toast
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -24,6 +28,8 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import java.text.SimpleDateFormat
 import java.util.*
+import java.util.jar.Manifest
+import kotlin.collections.ArrayList
 
 
 class HomeFragment : Fragment(), OnUserClickListenerHome {
@@ -34,12 +40,30 @@ class HomeFragment : Fragment(), OnUserClickListenerHome {
     private lateinit var userRecyclerView: RecyclerView
     private lateinit var userArrayList : ArrayList<user_cita>
     private lateinit var cld : ConnectionLiveData
+    private lateinit var permissionLauncher: ActivityResultLauncher<Array<String>>
+    private var isReadPermissionGranted = false
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         firebaseAuth = FirebaseAuth.getInstance()
         checkNetworkConnection()
+        permissionLauncher = registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()){ permissions ->
+            isReadPermissionGranted = permissions[android.Manifest.permission.READ_EXTERNAL_STORAGE] ?: isReadPermissionGranted
+        }
+        requestPermission()
     }
+
+    private fun requestPermission(){
+        isReadPermissionGranted = ContextCompat.checkSelfPermission(requireContext(), android.Manifest.permission.READ_EXTERNAL_STORAGE) == PackageManager.PERMISSION_GRANTED
+        val permissionRequest : MutableList<String> = ArrayList()
+        if(!isReadPermissionGranted){
+            permissionRequest.add(android.Manifest.permission.READ_EXTERNAL_STORAGE)
+        }
+        if(permissionRequest.isNotEmpty()){
+            permissionLauncher.launch(permissionRequest.toTypedArray())
+        }
+    }
+
 
     private fun checkNetworkConnection(){
         cld = ConnectionLiveData(requireActivity().application)
@@ -121,6 +145,7 @@ class HomeFragment : Fragment(), OnUserClickListenerHome {
             .addValueEventListener(object : ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()){
+                    userArrayList.clear()
                     for(userSnapshot in snapshot.children){
                         val user = userSnapshot.getValue(user_cita::class.java)
                         userArrayList.add(user!!)

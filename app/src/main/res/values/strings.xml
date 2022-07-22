@@ -9,7 +9,9 @@
     <!--STRING PARA TAGS -->
     <string name="item1">Consulta</string>
     <string name="item2">Extraccion</string>
-    <string name="item3">Otro</string>
+    <string name="item3">Nutricion</string>
+    <string name="item9">Implantes</string>
+    <string name="item8">Otro</string>
     <string name="item4">Dentista</string>
     <string name="item5">Nutriologo</string>
     <string name="item6">Doctor</string>
@@ -62,6 +64,8 @@
         <item>@string/item1</item>
         <item>@string/item2</item>
         <item>@string/item3</item>
+        <item>@string/item9</item>
+        <item>@string/item8</item>
     </string-array>
     <string-array name="tags_category">
         <item>@string/item4</item>

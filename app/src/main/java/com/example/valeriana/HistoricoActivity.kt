@@ -17,6 +17,7 @@ import com.example.valeriana.Adapters.Adapter_Home
 import com.example.valeriana.databinding.ActivityHistoricoBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import java.net.URLEncoder
 import java.util.ArrayList
 
 class HistoricoActivity : AppCompatActivity() {
@@ -83,6 +84,33 @@ class HistoricoActivity : AppCompatActivity() {
         }
         binding.btnBackDeatl.setOnClickListener {
             onBackPressed()
+        }
+
+        binding.btnMessage.setOnClickListener {
+            val numero = phone.toString()
+            whatsApp("+52", numero)
+        }
+
+    }
+
+    private fun whatsApp(code: String, phoneNumber: String) {
+
+        try {
+
+            val packageManager = this.packageManager
+            val i = Intent(Intent.ACTION_VIEW)
+            val url = "https://api.whatsapp.com/send?phone=" +"$code $phoneNumber" + "&text=" +
+                    URLEncoder.encode("Hello soy el dentista Paco")
+            i.setPackage("com.whatsapp")
+            i.data = Uri.parse(url)
+            if (i.resolveActivity(packageManager) != null){
+                startActivity(i)
+            }else{
+                Toast.makeText(this, "Please Install Whats App", Toast.LENGTH_SHORT).show()
+            }
+
+        }catch (e: Exception){
+            Toast.makeText(this, ""+e.stackTrace, Toast.LENGTH_SHORT).show()
         }
 
     }

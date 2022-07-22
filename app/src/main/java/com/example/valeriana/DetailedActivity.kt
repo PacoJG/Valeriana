@@ -16,6 +16,7 @@ import com.example.valeriana.calendar.TimePickerFragment
 import com.example.valeriana.databinding.ActivityDetailedBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+import java.net.URLEncoder
 
 
 class DetailedActivity : AppCompatActivity() {
@@ -99,6 +100,33 @@ class DetailedActivity : AppCompatActivity() {
                 Toast.makeText(this,"Otorga permisos a Valeriana para poder llamar",Toast.LENGTH_SHORT).show()
 
             }
+        }
+
+        binding.btnMessage.setOnClickListener {
+            val numero = phone.toString()
+            whatsApp("+52", numero)
+        }
+
+    }
+
+    private fun whatsApp(code: String, phoneNumber: String) {
+
+        try {
+
+            val packageManager = this.packageManager
+            val i = Intent(Intent.ACTION_VIEW)
+            val url = "https://api.whatsapp.com/send?phone=" +"$code $phoneNumber" + "&text=" +
+                    URLEncoder.encode("Hello soy el dentista Paco")
+            i.setPackage("com.whatsapp")
+            i.data = Uri.parse(url)
+            if (i.resolveActivity(packageManager) != null){
+                startActivity(i)
+            }else{
+                Toast.makeText(this, "Please Install Whats App", Toast.LENGTH_SHORT).show()
+            }
+
+        }catch (e: Exception){
+            Toast.makeText(this, ""+e.stackTrace, Toast.LENGTH_SHORT).show()
         }
 
     }
