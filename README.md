@@ -7,11 +7,11 @@ La relación médico y paciente juega un papel realmente importante en la práct
 
 ## Compatibilidad
 
-- Requiere celular que soporten aNDROID 6.0 (Marshmallow) o posterior
+- Requiere celular que soporten Android 6.0 (Marshmallow) o posterior
 - No disponible para tabletas
 
 La aplicacion esta pensada medicos/especialistas que tienen un día demasiado ocupado (muchas consultas a lo largo del dia), lo unico que cargan y revisan regularmente es el celular. Necesitan agilidad y eficiencia a l ahora de revisar las consultas del dia, el historial del paciente a tratar, etc. 
-Por otra parte el gran avance tecnológico en la actualidad y el alto salario que cobran los medicos/especialistas hacen que nuestro mercado ronde en personas con un iphone relativamente nuevo: iPhone 8 hasta iPhone 13
+Por otra parte un 95% de la población tiene un celular con android 6.0
 
 - Sólo soporta orientación vertical
 
