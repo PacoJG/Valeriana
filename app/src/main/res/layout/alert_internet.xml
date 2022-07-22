@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="wrap_content"
+        android:layout_height="170dp"
+        android:padding="10dp"
+        app:cardCornerRadius="14dp"
+        android:background="@color/white">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:text="@string/Help"
+                android:layout_width="match_parent"
+                android:visibility="visible"
+                android:padding="5dp"
+                android:gravity="center"
+                android:textColor="@color/red_dark"
+                android:layout_marginTop="5dp"
+                style="@style/Contact_Title"
+                android:layout_height="wrap_content"/>
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/alert_message"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:padding="10dp"
+                    style="@style/Content_Caption"
+                    android:gravity="center"
+                    android:text="@string/alert_internet"
+                    android:layout_margin="10dp"/>
+                <View
+                    android:id="@+id/alert_view"
+                    android:layout_width="match_parent"
+                    android:visibility="gone"
+                    android:background="@color/white"
+                    android:layout_height="1dp"
+                    android:layout_below="@id/alert_message"/>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="40dp"
+                    android:layout_below="@+id/alert_view"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+                    <Button
+                        android:id="@+id/alert_yes"
+                        style="@style/AppTheme.RoundedCornerMaterialButton"
+                        android:layout_width="wrap_content"
+                        android:layout_height="40dp"
+                        android:layout_gravity="center"
+                        android:background="@color/red_light"
+                        android:backgroundTint="@color/red_light"
+                        android:fontFamily="@font/opensans_semibold"
+                        android:gravity="center"
+                        android:text="Ok"
+                        android:textColor="@color/red_dark"
+                        app:backgroundTint="@color/red_light" />
+                </LinearLayout>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.appcompat.widget.LinearLayoutCompat>

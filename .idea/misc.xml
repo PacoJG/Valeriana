@@ -34,10 +34,12 @@
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.2148670426491439" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.30520833333333336" />
+        <entry key="app/src/main/res/layout/alert_internet.xml" value="0.25570175438596493" />
         <entry key="app/src/main/res/layout/card_calendar.xml" value="0.5988216734769052" />
         <entry key="app/src/main/res/layout/card_descriptive_layout.xml" value="0.67" />
         <entry key="app/src/main/res/layout/card_directorio.xml" value="0.47408706932737127" />
         <entry key="app/src/main/res/layout/card_historico.xml" value="0.6797496059484651" />
+        <entry key="app/src/main/res/layout/custom_dialog.xml" value="0.2831207275390625" />
         <entry key="app/src/main/res/layout/fragment_calendar.xml" value="0.33" />
         <entry key="app/src/main/res/layout/fragment_home.xml" value="0.3391203717487614" />
         <entry key="app/src/main/res/layout/fragment_notification.xml" value="0.25053441641727237" />

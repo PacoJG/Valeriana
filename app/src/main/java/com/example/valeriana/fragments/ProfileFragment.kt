@@ -1,9 +1,12 @@
 package com.example.valeriana.fragments
 
 import android.app.Activity
+import android.app.Dialog
 import android.app.ProgressDialog
 import android.content.ContentValues
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.net.Uri
 import android.os.Bundle
 import android.provider.MediaStore
@@ -14,15 +17,13 @@ import android.view.LayoutInflater
 import android.view.Menu
 import android.view.View
 import android.view.ViewGroup
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.PopupMenu
-import android.widget.Toast
+import android.widget.*
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.ActivityResultCallback
 import androidx.activity.result.contract.ActivityResultContracts
 import com.bumptech.glide.Glide
 import com.example.valeriana.Add_Paciente
+import com.example.valeriana.ConnectionLiveData
 import com.example.valeriana.LoginActivity
 import com.example.valeriana.R
 import com.example.valeriana.databinding.ActivityLoginBinding
@@ -42,6 +43,7 @@ class ProfileFragment : Fragment(), AdapterView.OnItemClickListener {
     private lateinit var firebaseAuth: FirebaseAuth
     private var imageUri:Uri? = null
     private lateinit var progressDialog: ProgressDialog
+    private lateinit var cld : ConnectionLiveData
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -50,6 +52,28 @@ class ProfileFragment : Fragment(), AdapterView.OnItemClickListener {
         progressDialog.setTitle("Please wait")
         progressDialog.setCanceledOnTouchOutside(false)
         firebaseAuth = FirebaseAuth.getInstance()
+        checkNetworkConnection()
+    }
+
+    private fun checkNetworkConnection(){
+        cld = ConnectionLiveData(requireActivity().application)
+        cld.observe(this) { isConnected ->
+            if (isConnected) {
+                //Toast.makeText(context, "Si hay internet", Toast.LENGTH_SHORT).show()
+            } else {
+                val dialogBinding = layoutInflater.inflate(R.layout.alert_internet, null)
+                val myDialog = Dialog(requireContext())
+                myDialog.setContentView(dialogBinding)
+                myDialog.setCancelable(true)
+                myDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                myDialog.show()
+                val yesbtn = dialogBinding.findViewById<Button>(R.id.alert_yes)
+                yesbtn.setOnClickListener {
+                    myDialog.dismiss()
+                }
+
+            }
+        }
     }
 
     private var name = ""

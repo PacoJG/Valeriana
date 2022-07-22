@@ -54,6 +54,10 @@
     <string name="Directorio">Directorio</string>
     <string name="header_Historico">Historico</string>
     <string name="historial">Historial del paciente</string>
+    <string name="tvIndicacion">Indicaciones</string>
+    <string name="Help">Problemas de conexión</string>
+    <string name="alert_internet">Revise su conexión a internet, Valeriana necesita internet para poder actualizar vistas y caragar datos</string>
+    <string name="explicacion">Aqui el doctor/especialista recibirá las notificaciones de cuando un paciente quiera agendar una cita con él. De igual forma lellegaran las notificaciones de mensajes o llamdas por parte del paciente. ESTO ES UNA MEJORA PARA UN FUTURO, CONECTANDO LA APP DEL PACIENTE</string>
     <string-array name="tags_list">
         <item>@string/item1</item>
         <item>@string/item2</item>
