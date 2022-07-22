@@ -3,6 +3,8 @@
 
 La relación médico y paciente juega un papel realmente importante en la práctica de la medicina, ya que es fundamental para ofrecer una asistencia médica de alta calidad en el diagnóstico y el tratamiento de la enfermedad. La relación entre el médico y su paciente es una de las bases de la ética médica contemporánea.
 
+Consulta tus datos en tiempo real. Crea y edita tus citas en tiempo real, asi mismo puede llmara o mensajear con tu paciente.
+
 **Palabras clave:** #medíco, #paciente, #historialClínico, #gestionarServicios, #eficiencia, #productividad, #consultas, #calidadEnAtención, #tratamiento
 
 ## Compatibilidad
