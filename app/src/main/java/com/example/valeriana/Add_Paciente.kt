@@ -271,24 +271,7 @@ class Add_Paciente : AppCompatActivity(), AdapterView.OnItemClickListener {
     }
 
     override fun onItemClick(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-        when(p2)
-        {
-            0 ->{
-                Toast.makeText(this@Add_Paciente,"Hola", Toast.LENGTH_LONG).show()
-            }
-            1 ->{
-                Toast.makeText(this@Add_Paciente,"Hola", Toast.LENGTH_LONG).show()
-            }
-            2 ->{
-                Toast.makeText(this@Add_Paciente,"Hola", Toast.LENGTH_LONG).show()
-            }
-            3 ->{
-                Toast.makeText(this@Add_Paciente,"Hola", Toast.LENGTH_LONG).show()
-            }
-            4 ->{
-                Toast.makeText(this@Add_Paciente,"Hola", Toast.LENGTH_LONG).show()
-            }
-        }
+
     }
 
     private fun showImageAttachMenu(){

@@ -53,6 +53,7 @@ class ProfileFragment : Fragment(), AdapterView.OnItemClickListener {
         progressDialog.setCanceledOnTouchOutside(false)
         firebaseAuth = FirebaseAuth.getInstance()
         checkNetworkConnection()
+
     }
 
     private fun checkNetworkConnection(){
@@ -289,8 +290,8 @@ class ProfileFragment : Fragment(), AdapterView.OnItemClickListener {
     }
 
     override fun onItemClick(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-        val item = parent?.getItemAtPosition(position).toString()
-        Toast.makeText(context,item, Toast.LENGTH_SHORT).show()
+        //val item = parent?.getItemAtPosition(position).toString()
+        //Toast.makeText(context,item, Toast.LENGTH_SHORT).show()
     }
 
 }
