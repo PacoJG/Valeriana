@@ -1,17 +1,22 @@
 package com.example.valeriana
 
+import android.Manifest.permission.CALL_PHONE
 import android.app.ProgressDialog
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
+import android.content.pm.PackageManager
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import com.bumptech.glide.Glide
 import com.example.valeriana.calendar.DatePickerFragment
 import com.example.valeriana.calendar.TimePickerFragment
-import com.example.valeriana.databinding.ActivityAddPacienteBinding
 import com.example.valeriana.databinding.ActivityDetailedBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.FirebaseDatabase
+
 
 class DetailedActivity : AppCompatActivity() {
 
@@ -83,6 +88,18 @@ class DetailedActivity : AppCompatActivity() {
             validateData()
         }
 
+        binding.btnCall.setOnClickListener {
+            val callIntent = Intent(Intent.ACTION_CALL)
+            val numero = phone.toString()
+            callIntent.data = Uri.parse("tel:"+numero)
+            if (ContextCompat.checkSelfPermission(applicationContext, CALL_PHONE) == PackageManager.PERMISSION_GRANTED) {
+                startActivity(callIntent)
+            } else {
+                requestPermissions(arrayOf(CALL_PHONE), 1)
+                Toast.makeText(this,"Otorga permisos a Valeriana para poder llamar",Toast.LENGTH_SHORT).show()
+
+            }
+        }
 
     }
 
@@ -179,3 +196,4 @@ class DetailedActivity : AppCompatActivity() {
             }
     }
 }
+

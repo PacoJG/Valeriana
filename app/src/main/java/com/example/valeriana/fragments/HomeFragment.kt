@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.valeriana.Adapters.Adapter_Calendar
 import com.example.valeriana.Adapters.Adapter_Home
 import com.example.valeriana.DetailedActivity
 import com.example.valeriana.OnUserClickListenerHome
@@ -55,6 +56,9 @@ class HomeFragment : Fragment(), OnUserClickListenerHome {
         userRecyclerView.layoutManager = LinearLayoutManager(requireContext())
         userRecyclerView.setHasFixedSize(true)
         userArrayList = arrayListOf<user_cita>()
+        userArrayList.clear()
+        userRecyclerView.adapter?.notifyDataSetChanged()
+        userRecyclerView.adapter = Adapter_Home(userArrayList, this@HomeFragment)
         getUserData()
 
 
@@ -80,6 +84,9 @@ class HomeFragment : Fragment(), OnUserClickListenerHome {
 
 
     private fun getUserData(){
+        userArrayList.clear()
+        userRecyclerView.adapter?.notifyDataSetChanged()
+        userRecyclerView.adapter = Adapter_Home(userArrayList, this@HomeFragment)
         val firebaseUser = firebaseAuth.currentUser!!
         val refData = FirebaseDatabase.getInstance().getReference("pacientes")
         val date = getCurrentDateTime()
@@ -94,6 +101,7 @@ class HomeFragment : Fragment(), OnUserClickListenerHome {
                     }
 
                     userRecyclerView.adapter = Adapter_Home(userArrayList, this@HomeFragment)
+                    userRecyclerView.adapter?.notifyDataSetChanged()
                 }
             }
 

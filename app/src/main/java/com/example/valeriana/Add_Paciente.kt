@@ -18,6 +18,7 @@ import androidx.appcompat.app.AppCompatActivity
 import com.example.valeriana.calendar.DatePickerFragment
 import com.example.valeriana.calendar.TimePickerFragment
 import com.example.valeriana.databinding.ActivityAddPacienteBinding
+import com.example.valeriana.fragments.HomeFragment
 import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -127,8 +128,6 @@ class Add_Paciente : AppCompatActivity(), AdapterView.OnItemClickListener {
                 Toast.makeText(this@Add_Paciente, "No se pudo realizar el registro", Toast.LENGTH_LONG).show()
             }*/
             validateData()
-
-
         }
 
     }

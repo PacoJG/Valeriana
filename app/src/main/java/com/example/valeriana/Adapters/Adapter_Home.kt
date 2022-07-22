@@ -25,6 +25,7 @@ class Adapter_Home(private val userList: ArrayList<user_cita>, private val onUse
     override fun onBindViewHolder(holder: MyViewHolder, position: Int){
         val currentitem = userList[position]
         holder.date.text = currentitem.date
+        holder.time.text = currentitem.time
         holder.name.text = currentitem.name
         holder.asuntoCita.text = currentitem.asuntoCita
         holder.tag.text = currentitem.tag
@@ -42,6 +43,7 @@ class Adapter_Home(private val userList: ArrayList<user_cita>, private val onUse
 
     class MyViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val date : TextView = itemView.findViewById(R.id.date_CardHome)
+        val time : TextView = itemView.findViewById(R.id.time_CardHome)
         val name : TextView = itemView.findViewById(R.id.name_user_CardHome)
         val asuntoCita : TextView = itemView.findViewById(R.id.asuntoCita_CardHome)
         val tag : TextView = itemView.findViewById(R.id.Tag_CardHome)

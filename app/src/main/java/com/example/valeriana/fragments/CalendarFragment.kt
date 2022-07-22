@@ -65,7 +65,7 @@ class CalendarFragment : Fragment() {
         dayDatePicker.getSelectedDate(object : OnDateSelectedListener {
             override fun onDateSelected(@Nullable date: Date?) {
                 SelectedDate = date.toString()
-                Toast.makeText(context, SelectedDate, Toast.LENGTH_SHORT).show()
+                //Toast.makeText(context, SelectedDate, Toast.LENGTH_SHORT).show()
                 //Log.d("FECHAAAAAA",SimpleDateFormat("MMM d, yyyy").format(date))
                 dayOfDate = SimpleDateFormat("MMM d, yyyy").format(date)
                 getData()
@@ -74,6 +74,10 @@ class CalendarFragment : Fragment() {
     }
 
     private fun getData() {
+        userArrayList.clear()
+        userRecyclerView.adapter?.notifyDataSetChanged()
+        userRecyclerView.adapter = Adapter_Calendar(userArrayList, this@CalendarFragment)
+
         val firebaseUser = firebaseAuth.currentUser!!
         val refData = FirebaseDatabase.getInstance().getReference("pacientes")
         //val date = getCurrentDateTime()
@@ -88,6 +92,7 @@ class CalendarFragment : Fragment() {
                         }
 
                         userRecyclerView.adapter = Adapter_Calendar(userArrayList, this@CalendarFragment)
+                        userRecyclerView.adapter?.notifyDataSetChanged()
                     }
                 }
 

@@ -18,7 +18,7 @@ import com.example.valeriana.user_cita
 class Adapter_Calendar(private val userList: ArrayList<user_cita>, private val onUserClickListenerHome: CalendarFragment): RecyclerView.Adapter<Adapter_Calendar.MyViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.card_descriptive_layout, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.card_calendar, parent, false)
         return MyViewHolder(itemView)
     }
 
@@ -28,7 +28,7 @@ class Adapter_Calendar(private val userList: ArrayList<user_cita>, private val o
         holder.name.text = currentitem.name
         holder.asuntoCita.text = currentitem.asuntoCita
         holder.tag.text = currentitem.tag
-        holder.image.setImageResource(R.drawable.image_cita)
+        holder.time.text = currentitem.time
 
         holder.itemView.setOnClickListener {
             onUserClickListenerHome.onUserItemClicked(position)
@@ -44,8 +44,8 @@ class Adapter_Calendar(private val userList: ArrayList<user_cita>, private val o
         val date : TextView = itemView.findViewById(R.id.date_CardHome)
         val name : TextView = itemView.findViewById(R.id.name_user_CardHome)
         val asuntoCita : TextView = itemView.findViewById(R.id.asuntoCita_CardHome)
+        val time : TextView = itemView.findViewById(R.id.time_CardHome)
         val tag : TextView = itemView.findViewById(R.id.Tag_CardHome)
-        val image : ImageView = itemView.findViewById(R.id.item_image_carddescriptive)
     }
 
 

@@ -20,40 +20,13 @@
         android:paddingTop="12dp"
         android:paddingBottom="12dp">
 
-        <ImageView
-            android:id="@+id/item_image_carddescriptive"
-            android:layout_width="72dp"
-            android:layout_height="72dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentTop="true"
-            android:layout_marginTop="12dp"
-            android:layout_marginBottom="12dp"
-            tools:src="@drawable/image_cita" />
-
         <LinearLayout
             android:id="@+id/linearlayout"
-            android:layout_width="245dp"
+            android:layout_width="233dp"
             android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="16dp"
-            android:layout_toEndOf="@+id/item_image_carddescriptive">
-
-            <TextView
-                android:id="@+id/Tag_CardHome"
-                style="@style/Tag_Text"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:background="@drawable/rounded_tag"
-                android:paddingLeft="12dp"
-                android:paddingTop="2dp"
-                android:paddingRight="12dp"
-                android:paddingBottom="2dp"
-                android:text="Extraccion"
-                android:textColor="@color/green_dark" />
-
-            <Space
-                android:layout_width="12dp"
-                android:layout_height="wrap_content" />
+            android:layout_marginStart="12dp">
 
             <TextView
                 android:id="@+id/date_CardHome"
@@ -72,19 +45,19 @@
                 style="@style/card_light"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="time"
+                android:text="Time"
                 android:textColor="@color/fonts_base" />
         </LinearLayout>
 
         <TextView
-            android:id="@+id/name_user_CardHome"
+            android:id="@+id/tvTag"
             style="@style/Components_Button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/linearlayout"
-            android:layout_marginStart="16dp"
-            android:layout_toEndOf="@+id/item_image_carddescriptive"
-            android:text="Frank Mendoza"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="12dp"
+            android:text="Tag"
             android:textColor="@color/fonts_base" />
 
         <TextView
@@ -92,9 +65,9 @@
             style="@style/Content_Body"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/name_user_CardHome"
-            android:layout_marginStart="16dp"
-            android:layout_toEndOf="@+id/item_image_carddescriptive"
+            android:layout_below="@+id/tvTag"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="12dp"
             android:text="Se necesita una extracción del 2do molar debido a una fractura." />
 
     </RelativeLayout>

@@ -51,6 +51,9 @@
     <string name="btnGuardar">Editar</string>
     <string name="back"><![CDATA[<-]]></string>
     <string name="forward"><![CDATA[->]]></string>
+    <string name="Directorio">Directorio</string>
+    <string name="header_Historico">Historico</string>
+    <string name="historial">Historial del paciente</string>
     <string-array name="tags_list">
         <item>@string/item1</item>
         <item>@string/item2</item>
