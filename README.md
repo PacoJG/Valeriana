@@ -25,4 +25,4 @@ La aplicación utiliza el SDK de Firebase a través del administrador de paquete
 
 ## Video demostrativo
 
-entra a la siguiente liga: 
+entra a la siguiente liga: https://www.mediafire.com/file/uucl6l2c8oelwnx/pruebaAndroid.mp4/file
