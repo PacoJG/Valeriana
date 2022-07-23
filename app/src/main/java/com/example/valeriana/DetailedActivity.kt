@@ -116,7 +116,7 @@ class DetailedActivity : AppCompatActivity() {
             val packageManager = this.packageManager
             val i = Intent(Intent.ACTION_VIEW)
             val url = "https://api.whatsapp.com/send?phone=" +"$code $phoneNumber" + "&text=" +
-                    URLEncoder.encode("Hello soy el dentista Paco")
+                    URLEncoder.encode("Hola soy el dentista Paco")
             i.setPackage("com.whatsapp")
             i.data = Uri.parse(url)
             if (i.resolveActivity(packageManager) != null){
